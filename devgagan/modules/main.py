@@ -18,7 +18,7 @@ import string
 import asyncio
 from pyrogram import filters, Client
 from devgagan import app
-from config import API_ID, API_HASH, FREEMIUM_LIMIT, PREMIUM_LIMIT, OWNER_ID
+from config import API_ID, API_HASH, FREEMIUM_LIMIT, PREMIUM_LIMIT, OWNER_ID, SESSION_STRING
 from devgagan.core.get_func import get_msg
 from devgagan.core.func import *
 from devgagan.core.mongo import db
@@ -129,7 +129,7 @@ async def single_link(_, message):
                         api_id=API_ID,
                         api_hash=API_HASH,
                         device_model=device,
-                        session_string=session
+                        session_string=SESSION_STRING
                     )
                     await userbot.start()
                 except Exception as e:
@@ -148,7 +148,7 @@ async def single_link(_, message):
             session = data.get("session")
             try:
                 device = 'Vivo Y20'
-                userbot = Client(":userbot:", api_id=API_ID, api_hash=API_HASH, device_model=device, session_string=session)
+                userbot = Client(":userbot:", api_id=API_ID, api_hash=API_HASH, device_model=device, session_string=SESSION_STRING)
                 await userbot.start()                
             except:
                 users_loop[user_id] = False
@@ -293,7 +293,7 @@ async def batch_link(_, message):
                                     api_id=API_ID,
                                     api_hash=API_HASH,
                                     device_model=device,
-                                    session_string=session
+                                    session_string=SESSION_STRING
                                 )
                                 await userbot.start()
                             except Exception as e:
@@ -329,7 +329,7 @@ async def batch_link(_, message):
                 api_id=API_ID,
                 api_hash=API_HASH,
                 device_model=device,
-                session_string=session
+                session_string=SESSION_STRING
             )
             await userbot.start()
         else:

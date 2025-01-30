@@ -15,7 +15,7 @@
 import asyncio
 import logging
 from pyrogram import Client
-from config import API_ID, API_HASH, BOT_TOKEN, SESSION_STRING, MONGO_DB
+from config import API_ID, API_HASH, BOT_TOKEN, STRING, MONGO_DB
 from telethon.sync import TelegramClient
 from motor.motor_asyncio import AsyncIOMotorClient
 import time
@@ -37,7 +37,7 @@ app = Client(
     workers=50
 )
 
-pro = Client("ggbot", api_id=API_ID, api_hash=API_HASH, session_string=SESSION_STRING)
+pro = Client("ggbot", api_id=API_ID, api_hash=API_HASH, session_string=STRING)
 
 sex = TelegramClient('sexrepo', API_ID, API_HASH).start(bot_token=BOT_TOKEN)
 
@@ -69,7 +69,7 @@ async def restrict_bot():
         BOT_NAME = getme.first_name + " " + getme.last_name
     else:
         BOT_NAME = getme.first_name
-    if SESSION_STRING:
+    if STRING:
         await pro.start()
 
 loop.run_until_complete(restrict_bot())
